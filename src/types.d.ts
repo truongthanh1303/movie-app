@@ -16,3 +16,15 @@ export interface IMovie {
   backdrop_path: string
 }
 
+export interface IWatchlistItem {
+  id: string;
+  category: "movie" | "tv";
+  poster_path: string;
+  title: string;
+  original_title: string;
+  name: string;
+  overview: string;
+  backdrop_path: string;
+  addedAt: string;
+}
+

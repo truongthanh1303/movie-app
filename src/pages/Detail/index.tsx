@@ -3,6 +3,7 @@ import { m } from "framer-motion";
 import { useParams } from "react-router-dom";
 
 import { Poster, Loader, Error, Section } from "@/common";
+import WatchlistButton from "@/common/WatchlistButton";
 import { Casts, Videos, Genre } from "./components";
 
 import { useGetShowQuery } from "@/services/TMDB";
@@ -81,6 +82,15 @@ const Detail = () => {
             >
               {title || name}
             </m.h2>
+
+            <m.div variants={fadeDown} className="will-change-transform motion-reduce:transform-none">
+              <WatchlistButton
+                movie={{ id: String(id), category: category as "movie" | "tv", poster_path: posterPath, original_title: title, name, overview }}
+                size="lg"
+                showLabel={true}
+                className="!w-auto px-4"
+              />
+            </m.div>
 
             <m.ul
               variants={fadeDown}
